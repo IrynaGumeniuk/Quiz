@@ -1,35 +1,104 @@
 const questions = [
   {
-    question: "Какой язык работает в браузере?",
+    question: "Яка мова працює у браузурі?",
     answers: ["Java", "C", "Python", "JavaScript"],
     correct: 4,
+    topic: "JS",
+    level: 2,
   },
   {
-    question: "Что означает CSS?",
+    question: "Тег- це?",
+    answers: ["код для визначення структури веб-сторінок", 
+              "команда у мові HTML", "будь-яке текстове повідомлення, що розташоване в кутових дужках", 
+              "настроювання вигляду частини веб-сторінки за допомогою спеціального коду"],
+    correct: 2,
+    topic: "HTML",
+    level: 1,
+  },
+  { 
+    question: "Що означає CSS?",
     answers: ["Central Style Sheets",
               "Cascading Style Sheets",
               "Cascading Simple Sheets", 
               "Cars SUVs Sailboats"],
     correct: 2,
+    topic: "CSS",
+    level: 1,
   },
   {
-    question: "Что означает HTML?",
+    question: "Що означає HTML?",
     answers: ["Hypertext Markup Language", 
               "Hypertext Markdown Language", 
               "Hyperloop Machine Language", 
               "Helicopters Terminals Motorboats Lamborginis"],
     correct: 1,
+    topic: "HTML",
+    level: 1, 
   },
   {
-    question: "В каком году был создан JavaScript?",
+    question: "Атрибут- це?",
+    answers: ["характеристика тегу, що впливає на створюваний ним ефект", 
+              "характеристика тегу, що вивчає місце його розташування в HTML- документі", 
+              "характеристика кольорів тексту та тла веб-сторінки", 
+              "властивість тегу"],
+    correct: 4,
+    topic: "HTML",
+    level: 1,
+  },
+  {
+    question: "В якому HTML елементі правильно підключати CSS файл??",
+    answers: ["< body >", "< head >", "Вкінці документа", "< script >"],
+    correct: 2,
+    topic: "HTML",
+    level: 2,
+  },
+  {
+    question: "Як правильно додавати коментарі в CSS документ?",
+    answers: ["< !-- коментар --> ", " /* коментар */ ", "// коментар", "// коментар // "],
+    correct: 2,
+    topic: "CSS",
+    level: 2,
+  },
+  {
+    question: " Виберіть правильний CSS синтаксис ",
+    answers: ["{div;color:black;}", "div:color=black;", "div {color: black;}", "{div:color=black;} "],
+    correct: 3,
+    topic: "CSS",
+    level: 2,
+  },
+  {
+    question: "В якому році був створенний JavaScript?",
     answers: ["1996", "1995", "1994", "все ответы неверные"],
     correct: 2,
-  }
-]
+    topic: "JS",
+    level: 3,
+  },
+  {
+    question: "Хто створив Javascript?",
+    answers: ["Тім Бернер Лі", "Стів Джобс", "Ларі Пейдж", "Брендан Айк", "Біл Гейтс"],
+    correct: 4,
+    topic: "JS",
+    level: 3,
+  },
+  {
+    question: "Яка компанія започаткувала використання Javascript?",
+    answers: ["Netscape", "Microsoft", "Google", "Apple"],
+    correct: 1,
+    topic: "JS",
+    level: 3,
+  },
+  {
+    question: "Javascript є регістро - залежною чи незалежною мовою програмування",
+    answers: ["так", "ні"],
+    correct: 1,
+    topic: "JS",
+    level: 3,
+  },
+];
 
 //Find elements
 const headerContainer = document.querySelector("#header");
-const listContainer = document.querySelector("#list");
+const listContainer = document.querySelector("#answers");
 const submitBtn = document.querySelector("#submit");
 
 //Variables
