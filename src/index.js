@@ -16,7 +16,7 @@ let Js3 = [];
 
 let n = 0;  
 
-export const questions = [ 
+const questions = [ 
   {
     question: "Яка мова працює у браузурі?",
     answers: ["Java", "C", "Python", "JavaScript"],
@@ -180,3 +180,4 @@ clearPage();
 showQuestion();
 submitBtn.onclick = checkAnswer;
 
+export {score, questionIndex, questions};
