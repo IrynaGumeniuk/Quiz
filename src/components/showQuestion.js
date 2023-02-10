@@ -26,3 +26,22 @@ export function showQuestion(){
         answerNumber++;
     }
 };
+
+//Answers
+    const questionAnswers = questions[questionIndex]["answers"];
+    let idQuiz = questionIndex + 1;
+    let answerText;
+    for (answerText of questionAnswers){
+        const questionTemplate = 
+        `<li>
+          <label>
+            <input value="%number%" type="radio" class="answer" name="answer" />
+            <span>%answer%</span>
+          </label>
+         </li>`;
+        const answerHTML = questionTemplate
+                            .replace("%answer%", answerText)
+                            .replace("%number%", idQuiz);
+        
+        listContainer.innerHTML += answerHTML;
+        idQuiz++;
