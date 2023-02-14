@@ -76,12 +76,8 @@ while (n < questions.length ) {
 }
 
 
-//Variables
-let score = 0;
-let questionIndex = 0;
-
 clearPage();
 showQuestion();
 submitBtn.onclick = checkAnswer;
 
-export {score, questionIndex, Html1, Html2, Html3, Css1, Css2, Css3, Js1, Js2, Js3, n }
+export {score, questionIndex, Html1, Html2, Html3, Css1, Css2, Css3, Js1, Js2, Js3, n }; 

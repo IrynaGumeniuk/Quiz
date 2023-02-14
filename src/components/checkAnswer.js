@@ -1,8 +1,11 @@
 import { questions } from "./dataBase.js"; 
-import { questionIndex, score } from "../index.js";
 import { listContainer, submitBtn } from "./elements.js";
 import { clearPage } from "./clearPage.js"; 
 import { showQuestion } from "./showQuestion.js";
+
+//Variables
+export let score = 0;
+export let questionIndex = 0;
 
 //Answer button
 export function checkAnswer(){
