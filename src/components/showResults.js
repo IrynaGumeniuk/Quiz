@@ -1,4 +1,4 @@
-import { questions } from "../index.js"; 
+import { questions } from "./dataBase.js"; 
 import { score}  from "./showQuestion.js"; 
 import { headerContainer, submitBtn} from "./elements.js"; 
 
