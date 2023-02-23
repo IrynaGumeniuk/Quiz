@@ -5,8 +5,6 @@ import { Html2 } from "../index.js";
 
 function changeCurrentlyTopicQuestion(data) {
     let currentTopicArray = "";
-    
-    
 
 
     return currentTopicArray;  
@@ -20,11 +18,19 @@ function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
     return currentLevelArray; 
 }
 
-function notRepeatQuestion() {
+function notRepeatQuestion(question, historyExperience) {
 
-  //compire data and history expirience user array
-
+  return [...questions].every( question => {
+    if(!historyExperience.include(question) ) {
+      return //запускаемо питання
+    }
+    if (historyExperience.include(question))> 
+  
+   return true;
+  })
 }
+
+// Array.find(!historyExperience.include(question))
 
 export function showQuestion(){
   //Question
