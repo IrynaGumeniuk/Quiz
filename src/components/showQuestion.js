@@ -4,7 +4,8 @@ import { headerContainer, listContainer }  from "./elements.js";
 import { Html2 } from "../index.js";
 
 function changeCurrentlyTopicQuestion(data) {
-    let currentTopicArray = ;
+    let currentTopicArray = "";
+    
     
 
 
