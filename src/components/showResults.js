@@ -11,6 +11,8 @@ export function showResults() {
 
     let title, message;
 
+// change to topics
+
     if (score === questions.length) {
       title = "Поздравляем! 🎉";
       message = "Вы ответили верно на все вопросы! 😎👍";

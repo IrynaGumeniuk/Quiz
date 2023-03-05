@@ -3,8 +3,12 @@ import { questionIndex } from "./checkAnswer.js";
 import { headerContainer, listContainer }  from "./elements.js";
 import { Html2 } from "../index.js";
 
-function changeCurrentlyTopicQuestion(data) {
+let correctAnswer = 
+
+function changeCurrentlyTopicQuestion() {
     let currentTopicArray = "";
+
+    // логіка для перевірки по рівню питання та коли треба переключитись на інший topic
 
 
     return currentTopicArray;  
@@ -12,8 +16,27 @@ function changeCurrentlyTopicQuestion(data) {
 
 function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
     let defaultLevel = 2;
-    
-    
+
+    switch (expr) {
+      case '2-':
+        ;
+        break;
+      case '2+':
+        ;
+        break;
+      default:
+        ;
+    }
+
+    //2+
+    //3+ result 3 {topic} "message"
+    //3-
+    //2+  result 2
+    //2-  
+    //1+  result 1
+    //1 - result 0
+
+    //switch
 
     return currentLevelArray; 
 }
@@ -24,7 +47,7 @@ function notRepeatQuestion(question, historyExperience) {
     if(!historyExperience.include(question) ) {
       return //запускаемо питання
     }
-    if (historyExperience.include(question))> 
+    if (historyExperience.include(question)) 
   
    return true;
   })

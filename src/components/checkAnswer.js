@@ -4,7 +4,9 @@ import { clearPage } from "./clearPage.js";
 import { showQuestion } from "./showQuestion.js";
 
 //Variables
-export let score = 0;
+export let score = {  
+  // topic: string: result: number
+};
 export let questionIndex = 0;
 
 //Answer button
@@ -21,11 +23,20 @@ export function checkAnswer(){
   const userAnswer = parseInt(checkedRadio.value);
 
   //correct answer or not
-  if (userAnswer === questions[questionIndex]["correct"]) {
+  changeCurrentlyTopicQuestion();
+
+  //change questionIndex
+  if (userAnswer === questions[questionIndex]["correct"]) { 
       score++;
   }
 
+// ended quiz by results (заокруглення)
+
   //last answer or not
+//historyExperience.length !== questions.length - 1
+
+// result: Html: 5 CSS: result -3, JS: 1
+
   if (questionIndex !== questions.length - 1){
     questionIndex++;
     clearPage();
