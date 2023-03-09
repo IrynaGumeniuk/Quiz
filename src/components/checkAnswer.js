@@ -2,12 +2,16 @@ import { questions } from "./dataBase.js";
 import { listContainer, submitBtn } from "./elements.js";
 import { clearPage } from "./clearPage.js"; 
 import { showQuestion } from "./showQuestion.js";
+import { levels, questionIndex } from "../index.js"
 
 //Variables
-export let score = {  
-  // topic: string: result: number
-};
-export let questionIndex = 0;
+// export let score = {  
+//   topic: string, 
+//   result: number
+// };
+
+
+// TO DO: add question to historyExpirience, filling functions in showQuestions
 
 //Answer button
 export function checkAnswer(){
@@ -27,15 +31,15 @@ export function checkAnswer(){
 
   //change questionIndex
   if (userAnswer === questions[questionIndex]["correct"]) { 
-      score++;
+    
+    let currentScore = scores.get(currentTopic);
+    scores.set(currentTopic, currentScore+1);
+
   }
 
-// ended quiz by results (заокруглення)
 
   //last answer or not
-//historyExperience.length !== questions.length - 1
 
-// result: Html: 5 CSS: result -3, JS: 1
 
   if (questionIndex !== questions.length - 1){
     questionIndex++;
@@ -47,3 +51,4 @@ export function checkAnswer(){
     showResults();
   };
 };
+

@@ -1,11 +1,17 @@
 import { questions } from "./dataBase.js";
-import { questionIndex } from "./checkAnswer.js";
 import { headerContainer, listContainer }  from "./elements.js";
-import { Html2 } from "../index.js";
+import { nextQuestion } from "./nextQuestion.js";
+import { currentTopic, currentLevel, historyExperience } from "../index.js"; 
+
+let currentQuestion; 
 
 let correctAnswer = 
 
-function changeCurrentlyTopicQuestion() {
+function noTopic () {
+
+};
+
+function changeCurrentlyTopic() {
     let currentTopicArray = "";
 
     // логіка для перевірки по рівню питання та коли треба переключитись на інший topic
@@ -43,7 +49,7 @@ function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
 
 function notRepeatQuestion(question, historyExperience) {
 
-  return [...questions].every( question => {
+  return [...shuffledQuestions].every( question => {
     if(!historyExperience.include(question) ) {
       return //запускаемо питання
     }
@@ -58,25 +64,35 @@ function notRepeatQuestion(question, historyExperience) {
 export function showQuestion(){
   //Question
   const headerTemplate = `<h2 class="title">%title%</h2>`;
-  const title = headerTemplate.replace("%title%", changeCurrentlyTopicQuestion(questions[questionIndex]["question"]));
-  headerContainer.innerHTML = title;
 
-  //Answers
-  let answerNumber = 1;
-  let answerText;
-  for (answerText of questions[questionIndex]["answers"]){
-      const questionTemplate = 
-      `<li>
-        <label>
-          <input value="%number%" type="radio" class="answer" name="answer" />
-          <span>%answer%</span>
-        </label>
-       </li>`;
-      const answerHTML = questionTemplate
-                          .replace("%answer%", answerText)
-                          .replace("%number%", answerNumber);
-      
-      listContainer.innerHTML += answerHTML;
-      answerNumber++;
+  currentQuestion = nextQuestion(currentTopic, currentLevel, historyExperience)
+
+  while (currentQuestion === null || noTopic()) {
+    changeCurrentlyTopic();
+    nextQuestion(); 
   }
-};
+
+  if (!(currentQuestion === null && !noTopic() )) {
+      const title = headerTemplate.replace("%title%", currentQuestion["question"]);
+      headerContainer.innerHTML = title;
+
+      //Answers
+      let answerNumber = 1;
+      let answerText;
+      for (answerText of currentQuestion["answers"]){
+          const questionTemplate = 
+          `<li>
+            <label>
+              <input value="%number%" type="radio" class="answer" name="answer" />
+              <span>%answer%</span>
+            </label>
+          </li>`;
+          const answerHTML = questionTemplate
+                              .replace("%answer%", answerText)
+                              .replace("%number%", answerNumber);
+          
+          listContainer.innerHTML += answerHTML;
+          answerNumber++;
+      }
+    }
+}; 

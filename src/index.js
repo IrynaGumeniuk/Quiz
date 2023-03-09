@@ -3,9 +3,36 @@ import { submitBtn } from "./components/elements.js";
 import { clearPage } from "./components/clearPage.js";
 import { showQuestion } from "./components/showQuestion.js";
 import { checkAnswer } from "./components/checkAnswer.js";
+import { shuffle } from "./shuffle.js";
+
+let questionIndex = 0;
+let currentTopic = "HTML"; 
+let currentLevel = 2; 
+let historyExperience = [];
 
 
-let Html1 = []; 
+let levels = new Map();
+
+levels.set("HTML", 0);
+levels.set("CSS", 0);
+levels.set("JS", 0);
+
+
+
+clearPage();
+let shuffledQuestions = shuffle(questions);
+showQuestion();
+submitBtn.onclick = checkAnswer;
+
+export { levels, questionIndex, shuffledQuestions, currentTopic, historyExperience }; 
+
+
+
+
+
+
+
+/*let Html1 = []; 
 let Html2 = []; 
 let Html3 = []; 
 let Css1 = []; 
@@ -75,9 +102,4 @@ while (n < questions.length ) {
 
 }
 
-
-clearPage();
-showQuestion();
-submitBtn.onclick = checkAnswer;
-
-export {score, questionIndex, Html1, Html2, Html3, Css1, Css2, Css3, Js1, Js2, Js3, n }; 
+export {score, questionIndex, Html1, Html2, Html3, Css1, Css2, Css3, Js1, Js2, Js3, n }; */
