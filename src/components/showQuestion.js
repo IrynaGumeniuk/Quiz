@@ -4,10 +4,11 @@ import { nextQuestion } from "./nextQuestion.js";
 import { currentTopic, currentLevel, historyExperience } from "../index.js"; 
 
 let currentQuestion; 
+let previousLevel = historyExperience.at(-1).level;
 
 let correctAnswer = 
 
-function noTopic () {
+function finishedTopic () {
 
 };
 
@@ -21,7 +22,8 @@ function changeCurrentlyTopic() {
 }
 
 function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
-    let defaultLevel = 2;
+  if(historyExperience.length === 0)
+  previousLevel = currentLevel;
 
     switch (expr) {
       case '2-':
@@ -47,15 +49,10 @@ function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
     return currentLevelArray; 
 }
 
-function notRepeatQuestion(question, historyExperience) {
+function notRepeatQuestion(shuffledQuestions, historyExperience) {
 
   return [...shuffledQuestions].every( question => {
-    if(!historyExperience.include(question) ) {
-      return //запускаемо питання
-    }
-    if (historyExperience.include(question)) 
-  
-   return true;
+      !historyExperience.include(question)
   })
 }
 
@@ -67,12 +64,12 @@ export function showQuestion(){
 
   currentQuestion = nextQuestion(currentTopic, currentLevel, historyExperience)
 
-  while (currentQuestion === null || noTopic()) {
+  while (currentQuestion === null || finishedTopic()) {
     changeCurrentlyTopic();
     nextQuestion(); 
   }
 
-  if (!(currentQuestion === null && !noTopic() )) {
+  if (!(currentQuestion === null && !finishedTopic() )) {
       const title = headerTemplate.replace("%title%", currentQuestion["question"]);
       headerContainer.innerHTML = title;
 

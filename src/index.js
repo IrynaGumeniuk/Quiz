@@ -18,18 +18,14 @@ levels.set("CSS", 0);
 levels.set("JS", 0);
 
 
-
 clearPage();
-let shuffledQuestions = shuffle(questions);
+
+const shuffledQuestions = shuffle(questions);
+
 showQuestion();
 submitBtn.onclick = checkAnswer;
 
-export { levels, questionIndex, shuffledQuestions, currentTopic, historyExperience }; 
-
-
-
-
-
+export { levels, questionIndex, shuffledQuestions, currentTopic, currentLevel, historyExperience }; 
 
 
 /*let Html1 = []; 
