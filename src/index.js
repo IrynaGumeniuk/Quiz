@@ -1,7 +1,7 @@
 import { questions } from "./components/dataBase.js";
 import { submitBtn } from "./components/elements.js";
-import { clearPage } from "./components/clearPage.js";
-import { showQuestion } from "./components/showQuestion.js";
+import { clearPage } from "./components/actions/clearPage.js";
+import { showQuestion } from "./components/actions/showQuestion.js";
 import { checkAnswer } from "./components/checkAnswer.js";
 import { shuffle } from "./shuffle.js";
 
@@ -22,7 +22,7 @@ clearPage();
 
 const shuffledQuestions = shuffle(questions);
 
-showQuestion();
+showQuestion();  
 submitBtn.onclick = checkAnswer;
 
 export { levels, questionIndex, shuffledQuestions, currentTopic, currentLevel, historyExperience }; 

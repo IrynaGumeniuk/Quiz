@@ -1,29 +1,33 @@
-import { questions } from "./dataBase.js";
-import { headerContainer, listContainer }  from "./elements.js";
-import { nextQuestion } from "./nextQuestion.js";
-import { currentTopic, currentLevel, historyExperience } from "../index.js"; 
+import { questions } from "../dataBase.js";
+import { headerContainer, listContainer }  from "../elements.js";
+import { checkBeforeShowQuestion } from "./checkBeforeShowQuestion.js";
+import { currentTopic, currentLevel, historyExperience, shuffledQuestions } from "../../index.js"; 
 
 let currentQuestion; 
 let previousLevel = historyExperience.at(-1).level;
-
-let correctAnswer = 
+let correctAnswer = questions[correct]
 
 function finishedTopic () {
-
+  // before show result
 };
 
 function changeCurrentlyTopic() {
     let currentTopicArray = "";
 
+    // if( result)
+
+
     // логіка для перевірки по рівню питання та коли треба переключитись на інший topic
 
 
     return currentTopicArray;  
-}
+};
 
-function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
+function changeCurrentLevel (currentLevel, currentTopic, previousLevel, correctAnswer) {
   if(historyExperience.length === 0)
   previousLevel = currentLevel;
+  
+if(checkAnswer) currentLevel + 1 //checkAnswer: boolean
 
     switch (expr) {
       case '2-':
@@ -36,25 +40,25 @@ function changeCurrentLevel (currentLevel, currentTopic, previousLevel) {
         ;
     }
 
-    //2+
-    //3+ result 3 {topic} "message"
+    //2+         
+    //3+ result 3 {topic} "message"   changeTopic
     //3-
-    //2+  result 2
+    //2+  result 2   changeTopic
     //2-  
-    //1+  result 1
-    //1 - result 0
+    //1+  result 1     changeTopic
+    //1 - result 0    changeTopic
 
     //switch
 
     return currentLevelArray; 
-}
+};
 
 function notRepeatQuestion(shuffledQuestions, historyExperience) {
 
   return [...shuffledQuestions].every( question => {
       !historyExperience.include(question)
   })
-}
+};
 
 // Array.find(!historyExperience.include(question))
 
@@ -62,11 +66,11 @@ export function showQuestion(){
   //Question
   const headerTemplate = `<h2 class="title">%title%</h2>`;
 
-  currentQuestion = nextQuestion(currentTopic, currentLevel, historyExperience)
+  currentQuestion = checkBeforeShowQuestion(currentTopic, currentLevel, historyExperience);
 
   while (currentQuestion === null || finishedTopic()) {
     changeCurrentlyTopic();
-    nextQuestion(); 
+    checkBeforeShowQuestion(); 
   }
 
   if (!(currentQuestion === null && !finishedTopic() )) {
