@@ -2,6 +2,7 @@ import { questions } from "../dataBase.js";
 import { headerContainer, listContainer }  from "../elements.js";
 import { checkBeforeShowQuestion } from "./checkBeforeShowQuestion.js";
 import { currentTopic, currentLevel, historyExperience, shuffledQuestions } from "../../index.js"; 
+import { checkAnswer, checkLastAnswer } from "../actions/checkAnswer.js";
 
 let currentQuestion; 
 let previousLevel = historyExperience.at(-1).level;
@@ -24,21 +25,19 @@ function changeCurrentlyTopic() {
 };
 
 function changeCurrentLevel (currentLevel, currentTopic, previousLevel, correctAnswer) {
-  if(historyExperience.length === 0)
-  previousLevel = currentLevel;
+  if(historyExperience.length === 0){
+    previousLevel = currentLevel;
+  };
   
-if(checkAnswer) currentLevel + 1 //checkAnswer: boolean
+  if(checkAnswer === true || !== 3){
+    currentLevel + 1; //checkAnswer: boolean
+  }, else {
+    currentLevel - 1;
+  };
 
-    switch (expr) {
-      case '2-':
-        ;
-        break;
-      case '2+':
-        ;
-        break;
-      default:
-        ;
-    }
+  
+
+    
 
     //2+         
     //3+ result 3 {topic} "message"   changeTopic

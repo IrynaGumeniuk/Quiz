@@ -4,15 +4,48 @@ import { clearPage } from "./clearPage.js";
 import { showQuestion } from "./showQuestion.js";
 import { levels, questionIndex } from "../../index.js"
 
-//Variables
-// export let score = {  
-//   topic: string, 
-//   result: number
-// };
+
+export function checkAnswer()
+{
+  const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
+  const userAnswer = parseInt(checkedRadio.value);
 
 
-// TO DO: add question to historyExperience, filling functions in showQuestions
+  if(userAnswer === !questions[questionIndex]["correct"])
+   {
+         return false;
+   }
+   else
+   {
+      //  //if any answer was selected
+      if(!checkedRadio)
+      {
+         submitBtn.blur();
+         return false;
+      }
+   }
+   return true;
+};
 
+export function checkLastAnswer(){
+  if (questionIndex !== questions.length - 1){
+    questionIndex++;
+    clearPage();
+    showQuestion();
+    return;
+  } else {
+    clearPage();
+    showResults();
+  };
+};
+
+
+
+
+
+
+
+/*
 //Answer button
 export function checkAnswer(){    
   const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
@@ -52,8 +85,6 @@ export function checkAnswer(){
     clearPage();
     showResults();
   };
-
-
   
 };
-
+/*
