@@ -1,33 +1,26 @@
 import { questions } from "../dataBase.js"; 
-import { listContainer, submitBtn } from "../elements.js";
+import { listContainer } from "../elements.js";
 import { clearPage } from "./clearPage.js"; 
 import { showQuestion } from "./showQuestion.js";
 import { levels, questionIndex } from "../../index.js"
 
 
-export function checkAnswer()
+export function isCorrectAnswer()
 {
   const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
   const userAnswer = parseInt(checkedRadio.value);
 
 
-  if(userAnswer === !questions[questionIndex]["correct"])
+  if(userAnswer !== questions[questionIndex]["correct"])
    {
-         return false;
+   return false;
    }
-   else
-   {
-      //  //if any answer was selected
-      if(!checkedRadio)
-      {
-         submitBtn.blur();
-         return false;
-      }
-   }
+  
    return true;
+
 };
 
-export function checkLastAnswer(){
+export function checkLastQuestion(){
   if (questionIndex !== questions.length - 1){
     questionIndex++;
     clearPage();
@@ -87,4 +80,4 @@ export function checkAnswer(){
   };
   
 };
-/*
+/*/

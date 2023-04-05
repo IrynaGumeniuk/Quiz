@@ -2,13 +2,14 @@ import { questions } from "../dataBase.js";
 import { headerContainer, listContainer }  from "../elements.js";
 import { checkBeforeShowQuestion } from "./checkBeforeShowQuestion.js";
 import { currentTopic, currentLevel, historyExperience, shuffledQuestions } from "../../index.js"; 
-import { checkAnswer, checkLastAnswer } from "../actions/checkAnswer.js";
+import { isCorrectAnswer, checkLastAnswer } from "../actions/checkAnswer.js";
 
 let currentQuestion; 
 let previousLevel = historyExperience.at(-1).level;
 let correctAnswer = questions[correct]
 
 function finishedTopic () {
+  return;
   // before show result
 };
 
@@ -21,21 +22,29 @@ function changeCurrentlyTopic() {
     // логіка для перевірки по рівню питання та коли треба переключитись на інший topic
 
 
-    return currentTopicArray;  
+    return;  
 };
 
 function changeCurrentLevel (currentLevel, currentTopic, previousLevel, correctAnswer) {
+  const highLevel = 3; //remove to controlers
+
   if(historyExperience.length === 0){
     previousLevel = currentLevel;
   };
   
-  if(checkAnswer === true || !== 3){
-    currentLevel + 1; //checkAnswer: boolean
-  }, else {
+  if(isCorrectAnswer){
+    if (!highLevel) currentLevel + 1;
+  } else {
     currentLevel - 1;
-  };
-
+  }
   
+  if(highLevel){
+    currentTopic
+  }
+
+  // if() [
+  //   //add result off each topic
+  // ]
 
     
 
@@ -49,7 +58,7 @@ function changeCurrentLevel (currentLevel, currentTopic, previousLevel, correctA
 
     //switch
 
-    return currentLevelArray; 
+    return; 
 };
 
 function notRepeatQuestion(shuffledQuestions, historyExperience) {

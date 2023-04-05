@@ -23,7 +23,16 @@ clearPage();
 const shuffledQuestions = shuffle(questions);
 
 showQuestion();  
-submitBtn.onclick = checkAnswer;
+activateBtn();
+
+
+function activateBtn() {
+
+ if(checkedRadio){
+   document.submitBtn.disabled = false;
+   submitBtn.onclick = checkAnswer();
+  }
+};
 
 export { levels, questionIndex, shuffledQuestions, currentTopic, currentLevel, historyExperience }; 
 
