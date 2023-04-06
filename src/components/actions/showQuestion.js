@@ -5,8 +5,8 @@ import { currentTopic, currentLevel, historyExperience, shuffledQuestions } from
 import { isCorrectAnswer } from "../actions/checkAnswer.js";
 
 let currentQuestion; 
-let previousLevel = historyExperience.at(-1).level;
-let correctAnswer = questions[correct]
+let previousLevel = 2 ; // historyExperience.at(-1).level
+// let correctAnswer = 2;  // number
 
 function finishedTopic () {
   return;
@@ -25,7 +25,7 @@ function changeCurrentlyTopic() {
     return;  
 };
 
-function changeCurrentLevel (currentLevel, currentTopic, previousLevel, correctAnswer) {
+function changeCurrentLevel (currentLevel, currentTopic, previousLevel ) {
   const highLevel = 3; //remove to controlers
 
   if(historyExperience.length === 0){
