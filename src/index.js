@@ -2,8 +2,8 @@ import { questions } from "./components/dataBase.js";
 import { submitBtn } from "./components/elements.js";
 import { clearPage } from "./components/actions/clearPage.js";
 import { showQuestion } from "./components/actions/showQuestion.js";
-import { checkAnswer } from "./components/checkAnswer.js";
-import { shuffle } from "./shuffle.js";
+import { isCorrectAnswer } from "./components/actions/checkAnswer.js";
+import { shuffle } from "./components/actions/shuffle.js";
 
 let questionIndex = 0;
 let currentTopic = "HTML"; 
@@ -30,7 +30,7 @@ function activateBtn() {
 
  if(checkedRadio){
    document.submitBtn.disabled = false;
-   submitBtn.onclick = checkAnswer();
+   submitBtn.onclick = isCorrectAnswer;
   }
 };
 

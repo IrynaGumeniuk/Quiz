@@ -2,7 +2,7 @@ import { questions } from "../dataBase.js";
 import { headerContainer, listContainer }  from "../elements.js";
 import { checkBeforeShowQuestion } from "./checkBeforeShowQuestion.js";
 import { currentTopic, currentLevel, historyExperience, shuffledQuestions } from "../../index.js"; 
-import { isCorrectAnswer, checkLastAnswer } from "../actions/checkAnswer.js";
+import { isCorrectAnswer } from "../actions/checkAnswer.js";
 
 let currentQuestion; 
 let previousLevel = historyExperience.at(-1).level;
